@@ -1,0 +1,39 @@
+[project]
+name = "cashflow-redteam"
+version = "0.1.0"
+description = "Long-context indirect prompt injection against a bank-statement spreading agent (Stirrup + LiteLLM)"
+readme = "README.md"
+requires-python = ">=3.12"  # stirrup requires 3.12+
+dependencies = [
+    "stirrup[litellm,docker]>=0.2.1",
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "rich>=13.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.6"]
+
+[project.scripts]
+cfr-generate = "cashflow_redteam.data_gen.generate:main"
+cfr-poison = "cashflow_redteam.attacks.inject:main"
+cfr-run = "cashflow_redteam.eval.run_matrix:main"
+cfr-report = "cashflow_redteam.eval.report:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cashflow_redteam"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["live: calls real LLM endpoints (costs money, non-deterministic)"]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+line-length = 110
