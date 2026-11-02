@@ -13,7 +13,12 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.6"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-datadir>=1.8.0",
+    "ruff>=0.6",
+]
 
 [project.scripts]
 cfr-generate = "cashflow_redteam.data_gen.generate:main"
