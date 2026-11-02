@@ -1,4 +1,4 @@
-# cashflow-redteam
+# Cashflow Redteam
 
 An educational repository demonstrating **Long-Context Indirect Prompt Injection** vulnerabilities and defensive mitigation strategies within autonomous AI agents processing financial records. 
 
@@ -36,7 +36,7 @@ src/cashflow_redteam/
 │   ├── run_matrix.py     # Experiment matrix runner
 │   └── report.py         # Results tables / plots
 └── schemas.py            # Chart of accounts, transactions, SpreadReport
-configs/experiment.yaml   # Models A/B/C, conditions, defenses, sweeps, repeats
+configs/experiment.yaml   # Models (claude/gpt5/gemma3), conditions, defenses, sweeps, repeats
 data/
 ├── benign_stmts/         # Clean statements (markdown)
 ├── poisoned_stmts/       # <objective>/<strategy>/ poisoned copies + manifest
