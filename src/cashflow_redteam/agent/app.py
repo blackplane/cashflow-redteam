@@ -20,7 +20,7 @@ RM_EMAIL = "rm.credit@lender.example"
 
 @dataclass
 class ModelSpec:
-    key: str                 # "A" | "B" | "C"
+    key: str                 # "claude" | "gpt5" | "gemma3"
     litellm_id: str
     context_window: int
     max_tokens: int = 16_000
